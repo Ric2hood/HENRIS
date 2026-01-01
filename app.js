@@ -34,7 +34,7 @@ const perfumes = [
     nombre:"khamrah",
     precio:"S/ 130",
     descripcion:"Khamrah de Lattafa huele dulce, especiado y cálido. ",
-    imagenes:["img/khamrah1.png","img/khamrah2.png","img/khamrah3","img/perfume1_4.png"]
+    imagenes:["img/khamrah1.png","img/khamrah2.png","img/khamrah3"]
 },
 {
     nombre:"PERFUME 2",
