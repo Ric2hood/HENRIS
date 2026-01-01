@@ -33,8 +33,8 @@ const perfumes = [
 {
     nombre:"khamrah",
     precio:"S/ 130",
-    descripcion:"Khamrah de Lattafa huele dulce, especiado y cálido, como una mezcla de canela, dátiles, vainilla, praliné y un toque cítrico de bergamota, con notas de fondo resinosas y amaderadas como mirra, benjuí y ámbar, evocando una sensación oriental, gourmand y lujosa, ideal para climas fríos. ",
-    imagenes:["img/khamrah1.png","khamrah2.png","khamrah3","img/perfume1_4.png"]
+    descripcion:"Khamrah de Lattafa huele dulce, especiado y cálido. ",
+    imagenes:["img/khamrah1.png","img/khamrah2.png","img/khamrah3","img/perfume1_4.png"]
 },
 {
     nombre:"PERFUME 2",
