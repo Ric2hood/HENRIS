@@ -34,13 +34,13 @@ const perfumes = [
     nombre:"khamrah",
     precio:"S/ 130",
     descripcion:"Khamrah de Lattafa huele dulce, especiado y cálido. ",
-    imagenes:["img/khamrah1.png","img/khamrah2.png","img/khamrah3"]
+    imagenes:["Img/khamrah1.png","Img/khamrah2.png","Img/khamrah3"]
 },
 {
     nombre:"PERFUME 2",
     precio:"S/ 000",
     descripcion:"Descripción del perfume",
-    imagenes:["img/perfume2_1.png","img/perfume2_2.png","img/perfume2_3.png","img/perfume2_4.png"]
+    imagenes:["Img/perfume2_1.png","Img/perfume2_2.png","Img/perfume2_3.png","Img/perfume2_4.png"]
 }
 // 👉 DUPLICAS HASTA 40
 ];
