@@ -33,6 +33,7 @@ nav{
     justify-content:center;
     align-items:center;
     position:relative;
+    z-index:10;
 }
 
 .nav-center{
@@ -80,7 +81,6 @@ nav{
 
 /* PAGES */
 #pages{
-    height:calc(100vh - 70px);
     position:relative;
 }
 
@@ -91,11 +91,12 @@ nav{
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
+    justify-content:flex-start;
     opacity:0;
     pointer-events:none;
     transform:translateY(30px);
     transition:.6s;
+    overflow:hidden;
 }
 
 .page.active{
@@ -104,6 +105,19 @@ nav{
     transform:none;
 }
 
+/* ===================== TODAS LAS SECCIONES - CORREGIDO ===================== */
+#inicio,
+#perfumes,
+#decants {
+    justify-content:flex-start;  
+    overflow-y: visible; /* Sin scroll interno */
+    max-height: none; /* Eliminar límite de altura */
+    height: auto;
+    min-height: calc(100vh - 70px); /* Altura mínima completa */
+    padding-bottom: 40px; /* Padding moderado */
+}
+
+/* TITULOS */
 h1{
     font-size:4.5rem;
     letter-spacing:14px;
@@ -117,11 +131,12 @@ h2{
 /* CATALOGO */
 .catalogo{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
     gap:30px;
     width:100%;
     max-width:1200px;
     margin-top:40px;
+    margin-bottom: 40px; /* Margen inferior para separación */
 }
 
 @media(max-width:768px){
@@ -144,7 +159,7 @@ h2{
 
 .card img{
     width:100%;
-    height:220px;
+    height:250px;
     object-fit:cover;
 }
 
@@ -177,14 +192,16 @@ input,textarea{
     border:1px solid #333;
     color:white;
 }
+
+/* WHATSAPP BOTÓN */
 #whatsappBtn {
-    position: fixed;        /* siempre visible */
-    bottom: 20px;           /* distancia desde abajo */
-    right: 20px;            /* distancia desde la derecha */
+    position: fixed;        
+    bottom: 20px;           
+    right: 20px;            
     width: 60px;
     height: 60px;
-    background: white;      /* para resaltar */
-    border-radius: 50%;     /* redondo */
+    background: white;      
+    border-radius: 50%;     
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     display: flex;
     justify-content: center;
@@ -196,11 +213,11 @@ input,textarea{
 }
 
 #whatsappBtn:hover {
-    transform: scale(1.1); /* efecto hover */
+    transform: scale(1.1); 
 }
 
 #whatsappBtn img {
-    width: 70%;             /* ocupa 70% del botón para que quede centrado */
+    width: 70%;             
     height: 70%;
-    object-fit: contain;    /* mantiene proporciones */
+    object-fit: contain;    
 }
