@@ -79,7 +79,7 @@ nav{
     fill:var(--dorado);
 }
 
-/* PAGES - CORREGIDO: APLICADO A TODAS LAS PÁGINAS */
+/* PAGES */
 #pages{
     position:relative;
 }
@@ -97,7 +97,7 @@ nav{
     transform:translateY(30px);
     transition:.6s;
     overflow:hidden;
-    /* ESTILOS PARA SCROLL COMPLETO AGREGADOS AQUÍ */
+    /* ESTILOS PARA SCROLL COMPLETO */
     overflow-y: visible;
     max-height: none;
     height: auto;
@@ -177,7 +177,42 @@ h2{
     font-weight:600;
 }
 
-/* FORM - PARA EL CARRITO Y FORMULARIOS */
+/* CARRITO ITEMS */
+.carrito-item{
+    background:var(--glass);
+    backdrop-filter:blur(14px);
+    border-radius:12px;
+    padding:15px;
+    margin:10px 0;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    width:100%;
+    max-width:600px;
+}
+
+.carrito-item img{
+    width:80px;
+    height:80px;
+    border-radius:8px;
+    object-fit:cover;
+}
+
+.carrito-item-info{
+    flex:1;
+}
+
+.carrito-item-eliminar{
+    background:#ff4444;
+    color:white;
+    border:none;
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* FORM */
 input,textarea{
     width:100%;
     margin:6px 0;
@@ -185,6 +220,7 @@ input,textarea{
     background:#111;
     border:1px solid #333;
     color:white;
+    max-width:600px;
 }
 
 /* WHATSAPP BOTÓN */
