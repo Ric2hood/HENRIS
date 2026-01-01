@@ -122,59 +122,209 @@ h2{
     color:var(--dorado);
 }
 
-/* CATALOGO */
-.catalogo{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-    width:100%;
-    max-width:1200px;
-    margin-top:40px;
+/* ===== DISEÑO ESPECIAL PARA PERFUMES (UNA COLUMNA DORADA) ===== */
+#catPerfumes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 40px;
     margin-bottom: 40px;
 }
 
-@media(max-width:768px){
-    .catalogo{
-        grid-template-columns:repeat(2,1fr);
+/* Tarjeta especial para perfumes - Layout horizontal DORADO */
+#catPerfumes .card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 5px solid var(--dorado); /* Línea DORADA al costado */
+    border-radius: 12px;
+    padding: 0;
+    height: 140px; /* Altura fija */
+    transition: all 0.3s ease;
+    gap: 0;
+}
+
+#catPerfumes .card:hover {
+    transform: translateX(8px); /* Efecto diferente al hover */
+    background: rgba(212, 175, 55, 0.1); /* Fondo dorado suave al hover */
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+}
+
+/* Imagen para perfumes - ajustada */
+#catPerfumes .card img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 10px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Información de la tarjeta perfume */
+#catPerfumes .card-info {
+    flex: 1;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+#catPerfumes .card-info h4 {
+    color: var(--dorado);
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+#catPerfumes .card-info p {
+    color: var(--dorado);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+#catPerfumes .perfume-desc {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+/* Botón DORADO para perfumes - al costado */
+#catPerfumes .btn {
+    width: auto;
+    min-width: 120px;
+    margin: 10px 20px;
+    padding: 12px 20px;
+    background: var(--dorado);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    align-self: center;
+    color: #000;
+}
+
+#catPerfumes .btn:hover {
+    background: #c19b2e; /* Dorado más oscuro al hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+/* ===== DISEÑO ESPECIAL PARA DECANTS (UNA COLUMNA DORADA) ===== */
+#catDecants {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Tarjeta especial para decants - Layout horizontal DORADO */
+#catDecants .card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 5px solid var(--dorado); /* Línea DORADA al costado */
+    border-radius: 12px;
+    padding: 0;
+    height: 140px; /* Altura fija */
+    transition: all 0.3s ease;
+    gap: 0;
+}
+
+#catDecants .card:hover {
+    transform: translateX(8px); /* Efecto diferente al hover */
+    background: rgba(212, 175, 55, 0.1); /* Fondo dorado suave al hover */
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+}
+
+/* Imagen para decants - ajustada */
+#catDecants .card img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 10px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Información de la tarjeta decant */
+#catDecants .card-info {
+    flex: 1;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+#catDecants .card-info h4 {
+    color: var(--dorado);
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+#catDecants .card-info p {
+    color: var(--dorado);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+#catDecants .perfume-desc {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+/* Botón DORADO para decants - al costado */
+#catDecants .btn {
+    width: auto;
+    min-width: 120px;
+    margin: 10px 20px;
+    padding: 12px 20px;
+    background: var(--dorado);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    align-self: center;
+    color: #000;
+}
+
+#catDecants .btn:hover {
+    background: #c19b2e; /* Dorado más oscuro al hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+/* Responsive para perfumes y decants */
+@media(max-width: 768px){
+    #catPerfumes .card,
+    #catDecants .card {
+        height: auto;
+        flex-direction: column;
+        padding: 15px;
     }
-}
-
-.card{
-    background:var(--glass);
-    backdrop-filter:blur(14px);
-    border-radius:18px;
-    overflow:hidden;
-    transition:.4s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
-.card img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-}
-
-.card-info{
-    padding:16px;
-}
-
-.perfume-desc{
-    font-size:.85rem;
-    opacity:.8;
-    margin-top:6px;
-}
-
-.btn{
-    width:100%;
-    margin-top:10px;
-    padding:8px;
-    background:var(--dorado);
-    border:none;
-    cursor:pointer;
-    font-weight:600;
+    
+    #catPerfumes .card img,
+    #catDecants .card img {
+        width: 100%;
+        height: 180px;
+        margin: 0 0 15px 0;
+    }
+    
+    #catPerfumes .btn,
+    #catDecants .btn {
+        width: 100%;
+        margin: 15px 0 0 0;
+    }
 }
 
 /* CARRITO ITEMS */
@@ -195,7 +345,8 @@ h2{
     width:80px;
     height:80px;
     border-radius:8px;
-    object-fit:cover;
+    object-fit:contain;
+    background:rgba(0,0,0,0.3);
 }
 
 .carrito-item-info{
@@ -221,6 +372,61 @@ input,textarea{
     border:1px solid #333;
     color:white;
     max-width:600px;
+}
+
+/* BOTÓN DE COMPRAR EN CARRITO - DORADO */
+#carrito .btn {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--dorado);
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+#carrito .btn:hover {
+    background: #c19b2e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Botones de cantidad en el carrito */
+.carrito-item-info button {
+    background: var(--dorado);
+    color: #000;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.carrito-item-info button:hover {
+    background: #c19b2e;
+    transform: scale(1.1);
+}
+
+/* Total del carrito */
+#totalCarrito {
+    margin: 20px 0;
+    font-size: 1.5rem;
+    color: var(--dorado);
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 /* WHATSAPP BOTÓN */
