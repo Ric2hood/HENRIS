@@ -79,7 +79,7 @@ nav{
     fill:var(--dorado);
 }
 
-/* PAGES */
+/* PAGES - CORREGIDO: APLICADO A TODAS LAS PÁGINAS */
 #pages{
     position:relative;
 }
@@ -97,24 +97,18 @@ nav{
     transform:translateY(30px);
     transition:.6s;
     overflow:hidden;
+    /* ESTILOS PARA SCROLL COMPLETO AGREGADOS AQUÍ */
+    overflow-y: visible;
+    max-height: none;
+    height: auto;
+    min-height: calc(100vh - 70px);
+    padding-bottom: 40px;
 }
 
 .page.active{
     opacity:1;
     pointer-events:auto;
     transform:none;
-}
-
-/* ===================== TODAS LAS SECCIONES - CORREGIDO ===================== */
-#inicio,
-#perfumes,
-#decants {
-    justify-content:flex-start;  
-    overflow-y: visible; /* Sin scroll interno */
-    max-height: none; /* Eliminar límite de altura */
-    height: auto;
-    min-height: calc(100vh - 70px); /* Altura mínima completa */
-    padding-bottom: 40px; /* Padding moderado */
 }
 
 /* TITULOS */
@@ -136,7 +130,7 @@ h2{
     width:100%;
     max-width:1200px;
     margin-top:40px;
-    margin-bottom: 40px; /* Margen inferior para separación */
+    margin-bottom: 40px;
 }
 
 @media(max-width:768px){
@@ -183,7 +177,7 @@ h2{
     font-weight:600;
 }
 
-/* FORM */
+/* FORM - PARA EL CARRITO Y FORMULARIOS */
 input,textarea{
     width:100%;
     margin:6px 0;
