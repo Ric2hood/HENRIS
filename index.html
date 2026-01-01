@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>HENRIS | Perfumes Premium</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<canvas id="fx"></canvas>
+
+<nav>
+    <div class="nav-center">
+        <a onclick="showPage('inicio')">Inicio</a>
+        <a onclick="showPage('perfumes')">Perfumes</a>
+        <a onclick="showPage('decants')">Decants</a>
+    </div>
+
+    <div id="cartBtn" onclick="showPage('carrito')">
+        <svg viewBox="0 0 24 24">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10
+            0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zM7.17
+            14h9.66c.75 0 1.41-.41 1.75-1.03l3.58-6.49-1.74-.99L17.83
+            11H8.1L4.27 3H1v2h2l3.6 7.59-1.35 2.44C4.52
+            15.37 5.48 17 7.17 17H19v-2H7.17z"/>
+        </svg>
+    </div>
+</nav>
+
+<div id="pages">
+
+<section id="inicio" class="page active">
+    <h1>HENRIS</h1>
+    <p>Perfumes · Decants · Elegancia</p>
+</section>
+
+<section id="perfumes" class="page">
+    <h2>Perfumes</h2>
+    <div id="catPerfumes" class="catalogo"></div>
+</section>
+
+<section id="decants" class="page">
+    <h2>Decants</h2>
+    <div id="catDecants" class="catalogo"></div>
+</section>
+
+<section id="carrito" class="page">
+    <h2>Carrito</h2>
+    <div id="carritoLista"></div>
+
+    <h3>Datos de compra</h3>
+    <input id="nombre" placeholder="Nombre">
+    <input id="apellido" placeholder="Apellidos">
+    <input id="direccion" placeholder="Dirección">
+    <textarea id="detalle" placeholder="Detalles"></textarea>
+
+    <button class="btn" onclick="comprar()">COMPRAR</button>
+</section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
