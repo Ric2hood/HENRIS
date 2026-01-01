@@ -177,29 +177,30 @@ input,textarea{
     border:1px solid #333;
     color:white;
 }
-/* =====================
-   BOTÓN WHATSAPP
-===================== */
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    width:60px;
-    height:60px;
-    background:#25D366;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    box-shadow:0 0 20px rgba(37,211,102,0.6);
-    z-index:200;
-    transition:0.3s;
+#whatsappBtn {
+    position: fixed;        /* siempre visible */
+    bottom: 20px;           /* distancia desde abajo */
+    right: 20px;            /* distancia desde la derecha */
+    width: 60px;
+    height: 60px;
+    background: white;      /* para resaltar */
+    border-radius: 50%;     /* redondo */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+    transition: transform 0.2s ease;
+    overflow: hidden;
 }
 
-.whatsapp:hover{
-    transform:scale(1.1);
+#whatsappBtn:hover {
+    transform: scale(1.1); /* efecto hover */
 }
 
-.whatsapp img{
-    width:32px;
+#whatsappBtn img {
+    width: 70%;             /* ocupa 70% del botón para que quede centrado */
+    height: 70%;
+    object-fit: contain;    /* mantiene proporciones */
 }
