@@ -41,6 +41,42 @@ const perfumes = [
     precio:"S/ 000",
     descripcion:"Descripción del perfume",
     imagenes:["Img/perfume2_1.png","Img/perfume2_2.png","Img/perfume2_3.png","Img/perfume2_4.png"]
+},
+{
+    nombre:"PERFUME 2",
+    precio:"S/ 000",
+    descripcion:"Descripción del perfume",
+    imagenes:["Img/perfume2_1.png","Img/perfume2_2.png","Img/perfume2_3.png","Img/perfume2_4.png"]
+},
+{
+    nombre:"PERFUME 2",
+    precio:"S/ 000",
+    descripcion:"Descripción del perfume",
+    imagenes:["Img/perfume2_1.png","Img/perfume2_2.png","Img/perfume2_3.png","Img/perfume2_4.png"]
+},
+{
+    nombre:"PERFUME 2",
+    precio:"S/ 000",
+    descripcion:"Descripción del perfume",
+    imagenes:["Img/perfume2_1.png","Img/perfume2_2.png","Img/perfume2_3.png","Img/perfume2_4.png"]
+},
+{
+    nombre:"PERFUME 2",
+    precio:"S/ 000",
+    descripcion:"Descripción del perfume",
+    imagenes:["Img/perfume2_1.png","Img/perfume2_2.png","Img/perfume2_3.png","Img/perfume2_4.png"]
+},
+{
+    nombre:"PERFUME 2",
+    precio:"S/ 000",
+    descripcion:"Descripción del perfume",
+    imagenes:["Img/perfume2_1.png","Img/perfume2_2.png","Img/perfume2_3.png","Img/perfume2_4.png"]
+},
+{
+    nombre:"PERFUME 2",
+    precio:"S/ 000",
+    descripcion:"Descripción del perfume",
+    imagenes:["Img/perfume2_1.png","Img/perfume2_2.png","Img/perfume2_3.png","Img/perfume2_4.png"]
 }
 // 👉 DUPLICAS HASTA 40
 ];
