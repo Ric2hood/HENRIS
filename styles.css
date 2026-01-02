@@ -457,3 +457,37 @@ input,textarea{
     height: 70%;
     object-fit: contain;    
 }
+/* ===== OPCIONES DE ML PARA DECANTS ===== */
+.opciones-ml {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.btn-ml {
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-ml:hover {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: #d4af37;
+}
+
+.btn-ml.active {
+    background: #d4af37;
+    color: #000;
+    border-color: #d4af37;
+}
+
+/* Ajustar el botón Añadir para decants con opciones */
+#catDecants .card .btn {
+    margin-top: 15px;
+}
