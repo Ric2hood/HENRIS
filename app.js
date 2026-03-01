@@ -359,7 +359,7 @@ function cambiarCantidad(id, cambio) {
     }
 }
 
-/* ===== CONTADOR DE PEDIDOS (SOLO PARA TI) ===== */
+/* ===== CONTADOR DE PEDIDOS ===== */
 function obtenerNumeroPedido() {
     let contador = localStorage.getItem('contadorPedidos');
     if (!contador) {
@@ -371,7 +371,7 @@ function obtenerNumeroPedido() {
     return contador;
 }
 
-/* ===== WHATSAPP CORREGIDO ===== */
+/* ===== WHATSAPP ===== */
 function comprar(){
     if(carrito.length === 0){
         mostrarNotificacion('Tu carrito está vacío');
@@ -390,10 +390,8 @@ function comprar(){
         return;
     }
     
-    // Obtener número de pedido
     const numeroPedido = obtenerNumeroPedido();
     
-    // Construir mensaje correctamente
     let mensaje = "";
     mensaje += "🛒 *PEDIDO #" + numeroPedido + "*\n";
     mensaje += "═══════════════════\n\n";
@@ -417,16 +415,11 @@ function comprar(){
         mensaje += "Referencia: " + detalle + "\n";
     }
     
-    // Codificar para WhatsApp
     const mensajeCodificado = encodeURIComponent(mensaje);
-    
-    // Abrir WhatsApp
     window.open("https://wa.me/51910163936?text=" + mensajeCodificado);
     
-    // Notificación para el cliente
     mostrarNotificacion('✅ Pedido enviado por WhatsApp');
     
-    // Limpiar carrito y formulario
     carrito = [];
     actualizarCarrito();
     
