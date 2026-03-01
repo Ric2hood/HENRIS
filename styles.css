@@ -123,11 +123,11 @@ h2{
     margin-bottom:30px;
 }
 
-/* ===== INICIO - UNIVERSAL ===== */
+/* ===== INICIO CON SCROLL ===== */
 #inicio.page {
-    overflow-y: auto;
+    overflow-y: auto;  /* SCROLL HABILITADO */
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 
@@ -135,11 +135,11 @@ h2{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
     min-height: 100%;
-    padding: 10px 0;
-    gap: 15px;
+    padding: 20px 0 40px 0;
+    gap: 20px;
 }
 
 .inicio-superior {
@@ -148,13 +148,14 @@ h2{
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-top: 10px;
 }
 
 .subtitulo {
     font-size: 1.2rem;
     letter-spacing: 4px;
     color: var(--blanco);
-    margin-top: 10px;
+    margin-top: 15px;
     text-align: center;
     opacity: 0.9;
 }
@@ -165,11 +166,11 @@ h2{
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 5px 0;
+    margin: 20px 0 30px 0;
 }
 
 .flotando-img {
-    max-width: 350px;
+    max-width: 380px;
     width: 100%;
     height: auto;
     filter: drop-shadow(0 25px 35px rgba(212, 175, 55, 0.5));
@@ -183,15 +184,15 @@ h2{
     100% { transform: translateY(0px); }
 }
 
-/* REDES SOCIALES - SIEMPRE VISIBLES */
+/* REDES SOCIALES */
 .redes-sociales {
     display: flex;
     gap: 50px;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 15px 0 10px 0;
-    padding: 10px 0;
+    margin: 20px 0 30px 0;
+    padding: 15px 0;
 }
 
 .red-social {
@@ -554,7 +555,7 @@ input,textarea{
     object-fit: contain;    
 }
 
-/* ===== MEDIA QUERIES UNIVERSALES ===== */
+/* ===== MEDIA QUERIES ===== */
 @media screen and (max-width: 1024px) {
     .page {
         padding: 20px 30px;
@@ -566,11 +567,7 @@ input,textarea{
     }
     
     .flotando-img {
-        max-width: 320px;
-    }
-    
-    .redes-sociales {
-        gap: 45px;
+        max-width: 340px;
     }
 }
 
@@ -661,29 +658,4 @@ input,textarea{
         width: 35px;
         height: 35px;
     }
-}
-
-/* Ajuste para pantallas muy pequeñas */
-@media screen and (max-height: 600px) and (orientation: landscape) {
-    .inicio-contenido {
-        gap: 5px;
-    }
-    
-    h1 {
-        font-size: 2.5rem;
-        letter-spacing: 6px;
-    }
-    
-    .flotando-img {
-        max-width: 150px;
-    }
-    
-    .redes-sociales {
-        margin: 5px 0;
-    }
-    
-    .red-icon {
-        width: 30px;
-        height: 30px;
-    }
-}
+        }
