@@ -3,7 +3,6 @@ function showPage(id){
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     
-    // Si se muestra el carrito, actualizamos la lista
     if(id === 'carrito') {
         actualizarCarrito();
     }
@@ -33,7 +32,7 @@ let pts=[...Array(120)].map(()=>({
     requestAnimationFrame(anim);
 })();
 
-/* ===== PERFUMES (40 PLANTILLAS) ===== */
+/* ===== PERFUMES ===== */
 const perfumes = [
 {
     nombre:"khamrah",
@@ -51,7 +50,7 @@ const perfumes = [
     nombre:"PERFUME 3",
     precio:120,
     descripcion:"Descripción del perfume",
-    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"] // SOLO 2 IMÁGENES
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"]
 },
 {
     nombre:"PERFUME 4",
@@ -63,7 +62,7 @@ const perfumes = [
     nombre:"PERFUME 5",
     precio:150,
     descripcion:"Descripción del perfume",
-    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"] // SOLO 2 IMÁGENES
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"]
 },
 {
     nombre:"PERFUME 6",
@@ -75,165 +74,119 @@ const perfumes = [
     nombre:"PERFUME 7",
     precio:95,
     descripcion:"Descripción del perfume",
-    imagenes:["Img/perfume2_1.png"] // SOLO 1 IMAGEN
+    imagenes:["Img/perfume2_1.png"]
 },
 {
     nombre:"PERFUME 8",
     precio:140,
     descripcion:"Descripción del perfume",
-    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"] // SOLO 2 IMÁGENES
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"]
 }
-// Puedes agregar más hasta 40
 ];
 
-/* ===== DECANTS CON OPCIONES DE ML ===== */
+/* ===== DECANTS ===== */
 const decants = [
 {
     nombre:"DECANT 1",
-    precios: {
-        "3ml": 20,
-        "5ml": 30,
-        "7ml": 40
-    },
+    precios: {"3ml":20,"5ml":30,"7ml":40},
     descripcion:"Descripción del decant - Fragancia premium",
-    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"] // 2 IMÁGENES
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"]
 },
 {
     nombre:"DECANT 2",
-    precios: {
-        "3ml": 25,
-        "5ml": 35,
-        "7ml": 45
-    },
+    precios: {"3ml":25,"5ml":35,"7ml":45},
     descripcion:"Descripción del decant - Aroma exclusivo",
-    imagenes:["Img/perfume2_1.png"] // 1 IMAGEN
+    imagenes:["Img/perfume2_1.png"]
 },
 {
     nombre:"DECANT 3",
-    precios: {
-        "3ml": 30,
-        "5ml": 40,
-        "7ml": 50
-    },
+    precios: {"3ml":30,"5ml":40,"7ml":50},
     descripcion:"Descripción del decant - Esencia duradera",
-    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png", "Img/perfume2_3.png"] // 3 IMÁGENES
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png", "Img/perfume2_3.png"]
 },
 {
     nombre:"DECANT 4",
-    precios: {
-        "3ml": 35,
-        "5ml": 45,
-        "7ml": 55
-    },
+    precios: {"3ml":35,"5ml":45,"7ml":55},
     descripcion:"Descripción del decant - Notas especiales",
-    imagenes:["Img/perfume2_1.png"] // 1 IMAGEN
+    imagenes:["Img/perfume2_1.png"]
 },
 {
     nombre:"DECANT 5",
-    precios: {
-        "3ml": 40,
-        "5ml": 50,
-        "7ml": 60
-    },
+    precios: {"3ml":40,"5ml":50,"7ml":60},
     descripcion:"Descripción del decant - Fragancia intensa",
-    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"] // 2 IMÁGENES
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"]
 },
 {
     nombre:"DECANT 6",
-    precios: {
-        "3ml": 45,
-        "5ml": 55,
-        "7ml": 65
-    },
+    precios: {"3ml":45,"5ml":55,"7ml":65},
     descripcion:"Descripción del decant - Aroma premium",
-    imagenes:["Img/perfume2_1.png"] // 1 IMAGEN
+    imagenes:["Img/perfume2_1.png"]
 },
 {
     nombre:"DECANT 7",
-    precios: {
-        "3ml": 50,
-        "5ml": 60,
-        "7ml": 70
-    },
+    precios: {"3ml":50,"5ml":60,"7ml":70},
     descripcion:"Descripción del decant - Esencia exclusiva",
-    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png", "Img/perfume2_3.png"] // 3 IMÁGENES
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png", "Img/perfume2_3.png"]
 },
 {
     nombre:"DECANT 8",
-    precios: {
-        "3ml": 55,
-        "5ml": 65,
-        "7ml": 75
-    },
+    precios: {"3ml":55,"5ml":65,"7ml":75},
     descripcion:"Descripción del decant - Fragancia única",
-    imagenes:["Img/perfume2_1.png"] // 1 IMAGEN
+    imagenes:["Img/perfume2_1.png"]
 }
-// Puedes agregar más decants aquí
 ];
 
-/* ===== GENERAR CATÁLOGO DE PERFUMES CON CARRUSEL ===== */
+/* ===== GENERAR PERFUMES ===== */
 const catPerfumes=document.getElementById("catPerfumes");
 perfumes.forEach(p=>{
-    // Generar las imágenes para el carrusel
     let imagenesHTML = '';
     p.imagenes.forEach(img => {
         imagenesHTML += `<img src="${img}" alt="${p.nombre}" class="carrusel-img">`;
     });
     
-    // Si hay más de una imagen, añadir indicadores y flechas
     const tieneMultiples = p.imagenes.length > 1;
     
     catPerfumes.innerHTML+=`
     <div class="card">
         <div class="carrusel-container" data-index="0" data-total="${p.imagenes.length}">
-            <div class="carrusel-track">
-                ${imagenesHTML}
-            </div>
+            <div class="carrusel-track">${imagenesHTML}</div>
             ${tieneMultiples ? `
             <button class="carrusel-flecha izquierda" onclick="moverCarrusel(this, -1)">❮</button>
             <button class="carrusel-flecha derecha" onclick="moverCarrusel(this, 1)">❯</button>
             <div class="carrusel-indicadores">
                 ${p.imagenes.map((_, i) => `<span class="indicador ${i === 0 ? 'active' : ''}" data-pos="${i}"></span>`).join('')}
-            </div>
-            ` : ''}
+            </div>` : ''}
         </div>
         <div class="card-info">
             <h4>${p.nombre}</h4>
-            <p style="color: #d4af37; font-weight: bold; font-size: 1.2rem;">S/ ${p.precio}</p>
+            <p style="color:#d4af37; font-weight:bold; font-size:1.2rem;">S/ ${p.precio}</p>
             <div class="perfume-desc">${p.descripcion}</div>
         </div>
-        <button class="btn" onclick="addToCart('${p.nombre}', ${p.precio}, '${p.imagenes[0]}', 'perfume')" style="background: #d4af37; color: #000; width: auto; margin: 10px 20px; padding: 12px 20px;">Añadir</button>
+        <button class="btn" onclick="addToCart('${p.nombre}', ${p.precio}, '${p.imagenes[0]}', 'perfume')">Añadir</button>
     </div>`;
 });
 
-/* ===== GENERAR CATÁLOGO DE DECANTS CON OPCIONES DE ML ===== */
+/* ===== GENERAR DECANTS ===== */
 const catDecants=document.getElementById("catDecants");
 decants.forEach((d, index)=>{
-    // Precio inicial (3ml por defecto)
     const precioInicial = d.precios["3ml"];
-    
-    // Generar las imágenes para el carrusel
     let imagenesHTML = '';
     d.imagenes.forEach(img => {
         imagenesHTML += `<img src="${img}" alt="${d.nombre}" class="carrusel-img">`;
     });
     
-    // Si hay más de una imagen, añadir indicadores y flechas
     const tieneMultiples = d.imagenes.length > 1;
     
     catDecants.innerHTML+=`
     <div class="card">
         <div class="carrusel-container" data-index="0" data-total="${d.imagenes.length}">
-            <div class="carrusel-track">
-                ${imagenesHTML}
-            </div>
+            <div class="carrusel-track">${imagenesHTML}</div>
             ${tieneMultiples ? `
             <button class="carrusel-flecha izquierda" onclick="moverCarrusel(this, -1)">❮</button>
             <button class="carrusel-flecha derecha" onclick="moverCarrusel(this, 1)">❯</button>
             <div class="carrusel-indicadores">
                 ${d.imagenes.map((_, i) => `<span class="indicador ${i === 0 ? 'active' : ''}" data-pos="${i}"></span>`).join('')}
-            </div>
-            ` : ''}
+            </div>` : ''}
         </div>
         <div class="card-info">
             <h4>${d.nombre}</h4>
@@ -242,144 +195,51 @@ decants.forEach((d, index)=>{
                 <button class="btn-ml" data-ml="5ml" data-precio="${d.precios['5ml']}">5ml</button>
                 <button class="btn-ml" data-ml="7ml" data-precio="${d.precios['7ml']}">7ml</button>
             </div>
-            <p class="precio-decant" style="color: #d4af37; font-weight: bold; font-size: 1.2rem; margin-top: 10px;">
+            <p class="precio-decant" style="color:#d4af37; font-weight:bold; font-size:1.2rem; margin-top:10px;">
                 S/ <span class="precio-actual">${precioInicial}</span>
             </p>
             <div class="perfume-desc">${d.descripcion}</div>
         </div>
-        <button class="btn" onclick="addDecantToCart(${index})" style="background: #d4af37; color: #000; width: auto; margin: 10px 20px; padding: 12px 20px;">Añadir</button>
+        <button class="btn" onclick="addDecantToCart(${index})">Añadir</button>
     </div>`;
 });
 
-/* ===== FUNCIONES PARA EL CARRUSEL ===== */
-// Función para mover el carrusel con las flechas
+/* ===== FUNCIONES CARRUSEL ===== */
 window.moverCarrusel = function(boton, direccion) {
     const container = boton.closest('.carrusel-container');
     const track = container.querySelector('.carrusel-track');
     const indicadores = container.querySelectorAll('.indicador');
-    const imgWidth = track.querySelector('img').offsetWidth + 10; // 10 es el gap
+    const imgWidth = track.querySelector('img').offsetWidth + 10;
     
     let currentIndex = parseInt(container.dataset.index);
     const total = parseInt(container.dataset.total);
     
-    // Calcular nuevo índice
     let newIndex = currentIndex + direccion;
-    
-    // Validar límites
     if (newIndex < 0) newIndex = total - 1;
     if (newIndex >= total) newIndex = 0;
     
-    // Mover el scroll
-    track.scrollTo({
-        left: newIndex * imgWidth,
-        behavior: 'smooth'
-    });
-    
-    // Actualizar índice y puntitos
+    track.scrollTo({left: newIndex * imgWidth, behavior: 'smooth'});
     container.dataset.index = newIndex;
-    actualizarIndicadores(container, newIndex);
+    
+    indicadores.forEach((ind, i) => {
+        if (i === newIndex) ind.classList.add('active');
+        else ind.classList.remove('active');
+    });
 };
 
-// Función para actualizar los indicadores
-function actualizarIndicadores(container, index) {
-    const indicadores = container.querySelectorAll('.indicador');
-    indicadores.forEach((ind, i) => {
-        if (i === index) {
-            ind.classList.add('active');
-        } else {
-            ind.classList.remove('active');
-        }
-    });
-}
-
-// Función para el scroll horizontal con el mouse
-function initCarruselScroll() {
-    document.querySelectorAll('.carrusel-container').forEach(container => {
-        const track = container.querySelector('.carrusel-track');
-        const total = parseInt(container.dataset.total);
-        
-        if (total <= 1) return; // No hay scroll si solo hay una imagen
-        
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-        
-        // Scroll con la rueda del mouse (horizontal)
-        container.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            track.scrollLeft += e.deltaY;
-            actualizarIndicadorPorScroll(container);
-        });
-        
-        // Scroll con arrastre del mouse
-        container.addEventListener('mousedown', (e) => {
-            isDown = true;
-            container.classList.add('active');
-            startX = e.pageX - container.offsetLeft;
-            scrollLeft = track.scrollLeft;
-        });
-        
-        container.addEventListener('mouseleave', () => {
-            isDown = false;
-            container.classList.remove('active');
-        });
-        
-        container.addEventListener('mouseup', () => {
-            isDown = false;
-            container.classList.remove('active');
-        });
-        
-        container.addEventListener('mousemove', (e) => {
-            if(!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - container.offsetLeft;
-            const walk = (x - startX) * 2;
-            track.scrollLeft = scrollLeft - walk;
-            actualizarIndicadorPorScroll(container);
-        });
-        
-        // Actualizar cuando el scroll termina
-        track.addEventListener('scroll', () => {
-            actualizarIndicadorPorScroll(container);
-        });
-    });
-}
-
-function actualizarIndicadorPorScroll(container) {
-    const track = container.querySelector('.carrusel-track');
-    const imgWidth = track.querySelector('img').offsetWidth + 10;
-    const scrollPosition = track.scrollLeft;
-    const newIndex = Math.round(scrollPosition / imgWidth);
-    const total = parseInt(container.dataset.total);
-    
-    if (newIndex >= 0 && newIndex < total) {
-        container.dataset.index = newIndex;
-        actualizarIndicadores(container, newIndex);
-    }
-}
-
-// Función para cambiar el precio cuando se selecciona un ML
+/* ===== OPCIONES ML ===== */
 document.addEventListener('click', function(e) {
     if(e.target.classList.contains('btn-ml')) {
         const opcionesDiv = e.target.closest('.opciones-ml');
-        const index = opcionesDiv.getAttribute('data-index');
-        
-        // Remover clase active de todos los botones en este grupo
-        opcionesDiv.querySelectorAll('.btn-ml').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        // Agregar clase active al botón clickeado
+        opcionesDiv.querySelectorAll('.btn-ml').forEach(btn => btn.classList.remove('active'));
         e.target.classList.add('active');
         
-        // Actualizar precio mostrado
         const precioSpan = opcionesDiv.parentElement.querySelector('.precio-actual');
-        const nuevoPrecio = e.target.getAttribute('data-precio');
-        precioSpan.textContent = nuevoPrecio;
+        precioSpan.textContent = e.target.getAttribute('data-precio');
     }
 });
 
-/* ===== FUNCIÓN ESPECIAL PARA AÑADIR DECANTS AL CARRITO ===== */
+/* ===== AÑADIR DECANT ===== */
 function addDecantToCart(index) {
     const card = document.querySelectorAll('#catDecants .card')[index];
     const mlSeleccionado = card.querySelector('.btn-ml.active').getAttribute('data-ml');
@@ -390,94 +250,67 @@ function addDecantToCart(index) {
     addToCart(`${nombre} (${mlSeleccionado})`, precio, imagen, 'decant');
 }
 
-/* ===== CARRITO MEJORADO ===== */
+/* ===== CARRITO ===== */
 let carrito=[];
 const cartBtn = document.getElementById("cartBtn");
 
 function addToCart(nombre, precio, imagen, tipo){
-    // Verificar si el producto ya está en el carrito
     const productoExistente = carrito.find(item => item.nombre === nombre && item.tipo === tipo);
     
     if(productoExistente) {
-        // Si ya existe, aumentar la cantidad
         productoExistente.cantidad += 1;
     } else {
-        // Si no existe, agregar nuevo item
-        const item = {
+        carrito.push({
             id: Date.now() + Math.random(),
             nombre: nombre,
             precio: precio,
             imagen: imagen,
             tipo: tipo,
             cantidad: 1
-        };
-        
-        carrito.push(item);
+        });
     }
     
-    // Efecto visual en el botón del carrito
     cartBtn.classList.add("bump");
     setTimeout(()=>cartBtn.classList.remove("bump"),300);
     
-    // Actualizar carrito si está visible
     if(document.getElementById('carrito').classList.contains('active')) {
         actualizarCarrito();
     }
     
-    // Mostrar notificación
     mostrarNotificacion(`${nombre} añadido al carrito`);
 }
 
 function mostrarNotificacion(mensaje) {
-    // Crear elemento de notificación
     const notificacion = document.createElement('div');
     notificacion.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #d4af37;
-        color: #000;
-        padding: 15px 25px;
-        border-radius: 8px;
-        z-index: 10000;
-        font-weight: 600;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        animation: slideIn 0.3s ease;
+        position:fixed; top:20px; right:20px; background:#d4af37; color:#000;
+        padding:15px 25px; border-radius:8px; z-index:10000; font-weight:600;
+        box-shadow:0 4px 12px rgba(0,0,0,0.3); animation:slideIn 0.3s ease;
     `;
     
-    // Agregar animación CSS
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-    `;
-    document.head.appendChild(style);
+    if (!document.getElementById('notifStyles')) {
+        const style = document.createElement('style');
+        style.id = 'notifStyles';
+        style.textContent = `
+            @keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+            @keyframes slideOut{from{transform:translateX(0);opacity:1}to{transform:translateX(100%);opacity:0}}
+        `;
+        document.head.appendChild(style);
+    }
     
     notificacion.textContent = mensaje;
     document.body.appendChild(notificacion);
     
-    // Remover notificación después de 3 segundos
     setTimeout(() => {
         notificacion.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => {
-            document.body.removeChild(notificacion);
-            document.head.removeChild(style);
-        }, 300);
+        setTimeout(() => document.body.removeChild(notificacion), 300);
     }, 3000);
 }
 
 function eliminarDelCarrito(id){
     carrito = carrito.filter(item => item.id !== id);
     actualizarCarrito();
-    
-    // Mostrar notificación de eliminación
-    mostrarNotificacion('Producto eliminado del carrito');
+    mostrarNotificacion('Producto eliminado');
 }
 
 function actualizarCarrito(){
@@ -485,7 +318,7 @@ function actualizarCarrito(){
     const totalCarrito = document.getElementById("totalCarrito");
     
     if(carrito.length === 0){
-        carritoLista.innerHTML = "<p style='text-align: center; opacity: 0.7;'>Tu carrito está vacío</p>";
+        carritoLista.innerHTML = "<p style='text-align:center; opacity:0.7;'>Tu carrito está vacío</p>";
         totalCarrito.textContent = "Total: S/ 0";
         return;
     }
@@ -502,11 +335,11 @@ function actualizarCarrito(){
             <div class="carrito-item-info">
                 <h4>${item.nombre}</h4>
                 <p>S/ ${item.precio} - ${item.tipo}</p>
-                <div style="display: flex; align-items: center; gap: 10px; margin-top: 8px;">
-                    <button onclick="cambiarCantidad(${item.id}, -1)" style="background: #333; color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">-</button>
-                    <span style="font-weight: bold;">${item.cantidad}</span>
-                    <button onclick="cambiarCantidad(${item.id}, 1)" style="background: #d4af37; color: #000; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-weight: bold;">+</button>
-                    <span style="margin-left: 15px; color: #d4af37; font-weight: bold;">Subtotal: S/ ${subtotal}</span>
+                <div style="display:flex; align-items:center; gap:10px; margin-top:8px;">
+                    <button onclick="cambiarCantidad(${item.id}, -1)" style="background:#333; color:white; border:none; width:30px; height:30px; border-radius:50%; cursor:pointer;">-</button>
+                    <span style="font-weight:bold;">${item.cantidad}</span>
+                    <button onclick="cambiarCantidad(${item.id}, 1)" style="background:#d4af37; color:#000; border:none; width:30px; height:30px; border-radius:50%; cursor:pointer; font-weight:bold;">+</button>
+                    <span style="margin-left:15px; color:#d4af37; font-weight:bold;">Subtotal: S/ ${subtotal}</span>
                 </div>
             </div>
             <button class="carrito-item-eliminar" onclick="eliminarDelCarrito(${item.id})">Eliminar</button>
@@ -519,32 +352,27 @@ function actualizarCarrito(){
 
 function cambiarCantidad(id, cambio) {
     const item = carrito.find(item => item.id === id);
-    
     if(item) {
         item.cantidad += cambio;
-        
-        // Si la cantidad es 0 o menor, eliminar el producto
-        if(item.cantidad <= 0) {
-            eliminarDelCarrito(id);
-        } else {
-            actualizarCarrito();
-        }
+        if(item.cantidad <= 0) eliminarDelCarrito(id);
+        else actualizarCarrito();
     }
 }
 
-/* ===== WHATSAPP ===== */
+/* ===== WHATSAPP ACTUALIZADO CON DISTRITO Y PROVINCIA ===== */
 function comprar(){
     if(carrito.length === 0){
         mostrarNotificacion('Tu carrito está vacío');
         return;
     }
     
-    // Validar datos básicos
     const nombre = document.getElementById('nombre').value;
     const direccion = document.getElementById('direccion').value;
+    const distrito = document.getElementById('distrito').value;
+    const provincia = document.getElementById('provincia').value;
     
-    if(!nombre || !direccion) {
-        mostrarNotificacion('Completa tu nombre y dirección');
+    if(!nombre || !direccion || !distrito || !provincia) {
+        mostrarNotificacion('Completa todos los datos de envío');
         return;
     }
     
@@ -557,24 +385,36 @@ function comprar(){
     });
     
     m+=`%0A*TOTAL: S/ ${total}*%0A%0A`;
-    m+=`👤 *Cliente:*%0A`;
-    m+=`Nombre: ${document.getElementById('nombre').value}%0A`;
+    m+=`👤 *Datos de envío:*%0A`;
+    m+=`Nombre: ${nombre}%0A`;
     m+=`Apellidos: ${document.getElementById('apellido').value || 'No especificado'}%0A`;
-    m+=`Dirección: ${document.getElementById('direccion').value}%0A`;
-    m+=`Detalles: ${document.getElementById('detalle').value || 'Ninguno'}`;
+    m+=`Dirección: ${direccion}%0A`;
+    m+=`Distrito: ${distrito}%0A`;
+    m+=`Provincia: ${provincia}%0A`;
+    m+=`Referencia: ${document.getElementById('detalle').value || 'Ninguna'}`;
     
     window.open("https://wa.me/51910163936?text="+m);
     
-    // Limpiar carrito después de enviar
     carrito = [];
     actualizarCarrito();
     
-    // Limpiar formulario
     document.getElementById('nombre').value = '';
     document.getElementById('apellido').value = '';
     document.getElementById('direccion').value = '';
+    document.getElementById('distrito').value = '';
+    document.getElementById('provincia').value = '';
     document.getElementById('detalle').value = '';
 }
 
-// Inicializar carruseles después de cargar los productos
-setTimeout(initCarruselScroll, 500);
+/* ===== INICIAR CARRUSELES ===== */
+setTimeout(() => {
+    document.querySelectorAll('.carrusel-container').forEach(container => {
+        if(container.dataset.total <= 1) return;
+        
+        const track = container.querySelector('.carrusel-track');
+        container.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            track.scrollLeft += e.deltaY;
+        });
+    });
+}, 500);
