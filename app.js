@@ -371,48 +371,62 @@ function obtenerNumeroPedido() {
     return contador;
 }
 
-/* ===== WHATSAPP ACTUALIZADO CON NÚMERO DE PEDIDO ===== */
+/* ===== WHATSAPP CORREGIDO ===== */
 function comprar(){
     if(carrito.length === 0){
         mostrarNotificacion('Tu carrito está vacío');
         return;
     }
     
-    const nombre = document.getElementById('nombre').value;
-    const direccion = document.getElementById('direccion').value;
-    const distrito = document.getElementById('distrito').value;
-    const provincia = document.getElementById('provincia').value;
+    const nombre = document.getElementById('nombre').value.trim();
+    const apellido = document.getElementById('apellido').value.trim();
+    const direccion = document.getElementById('direccion').value.trim();
+    const distrito = document.getElementById('distrito').value.trim();
+    const provincia = document.getElementById('provincia').value.trim();
+    const detalle = document.getElementById('detalle').value.trim();
     
     if(!nombre || !direccion || !distrito || !provincia) {
         mostrarNotificacion('Completa todos los datos de envío');
         return;
     }
     
-    // Obtener número de pedido (solo para ti)
+    // Obtener número de pedido
     const numeroPedido = obtenerNumeroPedido();
     
-    let m = `🛒 *PEDIDO #${numeroPedido}* %0A%0A`; // Solo tú ves esto
-    let total = 0;
+    // Construir mensaje correctamente
+    let mensaje = "";
+    mensaje += "🛒 *PEDIDO #" + numeroPedido + "*\n";
+    mensaje += "═══════════════════\n\n";
     
-    carrito.forEach(i=>{
-        m+=`• ${i.nombre} x${i.cantidad} - S/ ${i.precio * i.cantidad} (${i.tipo})%0A`;
-        total += i.precio * i.cantidad;
+    let total = 0;
+    carrito.forEach(item => {
+        const subtotal = item.precio * item.cantidad;
+        total += subtotal;
+        mensaje += "• " + item.nombre + " x" + item.cantidad + " - S/ " + subtotal + " (" + item.tipo + ")\n";
     });
     
-    m+=`%0A*TOTAL: S/ ${total}*%0A%0A`;
-    m+=`👤 *Datos del cliente:*%0A`;
-    m+=`Nombre: ${nombre}%0A`;
-    m+=`Apellidos: ${document.getElementById('apellido').value || 'No especificado'}%0A`;
-    m+=`Dirección: ${direccion}%0A`;
-    m+=`Distrito: ${distrito}%0A`;
-    m+=`Provincia: ${provincia}%0A`;
-    m+=`Referencia: ${document.getElementById('detalle').value || 'Ninguna'}`;
+    mensaje += "\n*TOTAL: S/ " + total + "*\n";
+    mensaje += "═══════════════════\n\n";
+    mensaje += "👤 *DATOS DEL CLIENTE:*\n";
+    mensaje += "Nombre: " + nombre + " " + apellido + "\n";
+    mensaje += "Dirección: " + direccion + "\n";
+    mensaje += "Distrito: " + distrito + "\n";
+    mensaje += "Provincia: " + provincia + "\n";
     
-    window.open("https://wa.me/51910163936?text="+m);
+    if(detalle) {
+        mensaje += "Referencia: " + detalle + "\n";
+    }
     
-    // Notificación para el cliente (no muestra el número)
+    // Codificar para WhatsApp
+    const mensajeCodificado = encodeURIComponent(mensaje);
+    
+    // Abrir WhatsApp
+    window.open("https://wa.me/51910163936?text=" + mensajeCodificado);
+    
+    // Notificación para el cliente
     mostrarNotificacion('✅ Pedido enviado por WhatsApp');
     
+    // Limpiar carrito y formulario
     carrito = [];
     actualizarCarrito();
     
@@ -424,7 +438,7 @@ function comprar(){
     document.getElementById('detalle').value = '';
 }
 
-/* ===== FUNCIÓN PARA REINICIAR CONTADOR (SOLO PARA PRUEBAS) ===== */
+/* ===== FUNCIÓN PARA REINICIAR CONTADOR ===== */
 function reiniciarContadorPedidos() {
     localStorage.setItem('contadorPedidos', '0');
     mostrarNotificacion('Contador reiniciado a 0');
