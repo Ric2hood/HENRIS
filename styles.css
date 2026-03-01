@@ -126,7 +126,7 @@ h2{
 
 /* ===== INICIO SIN SCROLL ===== */
 #inicio.page {
-    overflow-y: hidden; /* QUITADO EL SCROLL */
+    overflow-y: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,7 +139,7 @@ h2{
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    padding: 20px 0 30px 0;
+    padding: 10px 0 15px 0;
 }
 
 .inicio-superior {
@@ -160,39 +160,39 @@ h2{
     opacity: 0.9;
 }
 
-/* PERFUME FLOTANTE - TAMAÑO PERFECTO */
+/* PERFUME FLOTANTE - GRANDE EN PC */
 .perfume-flotante {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 .flotando-img {
-    max-width: 340px;  /* TAMAÑO IDEAL */
+    max-width: 420px;  /* MÁS GRANDE EN PC */
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 20px 30px rgba(212, 175, 55, 0.5));
+    filter: drop-shadow(0 25px 35px rgba(212, 175, 55, 0.5));
     animation: flotar 4s ease-in-out infinite;
     transition: all 0.3s ease;
 }
 
 @keyframes flotar {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); filter: drop-shadow(0 30px 40px rgba(212, 175, 55, 0.7)); }
+    50% { transform: translateY(-20px); filter: drop-shadow(0 35px 45px rgba(212, 175, 55, 0.7)); }
     100% { transform: translateY(0px); }
 }
 
 /* REDES SOCIALES AL PIE */
 .redes-sociales {
     display: flex;
-    gap: 45px;
+    gap: 50px;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 15px 0 10px 0;
+    padding: 10px 0 5px 0;
 }
 
 .red-social {
@@ -208,8 +208,8 @@ h2{
 }
 
 .red-icon {
-    width: 42px;
-    height: 42px;
+    width: 45px;
+    height: 45px;
 }
 
 /* Colores oficiales */
@@ -554,7 +554,7 @@ input,textarea{
     object-fit: contain;    
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE MÓVIL ===== */
 @media(max-width: 768px){
     #catPerfumes .card,
     #catDecants .card {
@@ -597,8 +597,9 @@ input,textarea{
         letter-spacing: 2px;
     }
     
+    /* PERFUME MÁS GRANDE EN MÓVIL */
     .flotando-img {
-        max-width: 260px;
+        max-width: 300px;  /* AUMENTADO DE 260px a 300px */
     }
     
     .redes-sociales {
@@ -606,8 +607,8 @@ input,textarea{
     }
     
     .red-icon {
-        width: 36px;
-        height: 36px;
+        width: 40px;  /* AUMENTADO */
+        height: 40px;
     }
 }
 
@@ -617,16 +618,17 @@ input,textarea{
         letter-spacing: 6px;
     }
     
+    /* PERFUME AÚN MÁS GRANDE EN MÓVIL PEQUEÑO */
     .flotando-img {
-        max-width: 280px;
+        max-width: 250px;  /* AUMENTADO de 200px a 250px */
     }
     
     .redes-sociales {
-        gap: 28px;
+        gap: 30px;
     }
     
     .red-icon {
-        width: 32px;
-        height: 32px;
+        width: 36px;  /* AUMENTADO */
+        height: 36px;
     }
-    }
+}
