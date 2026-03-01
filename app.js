@@ -45,43 +45,43 @@ const perfumes = [
     nombre:"PERFUME 2",
     precio:100,
     descripcion:"Descripción del perfume",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png", "Img/perfume2_3.png"]
 },
 {
     nombre:"PERFUME 3",
     precio:120,
     descripcion:"Descripción del perfume",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"] // SOLO 2 IMÁGENES
 },
 {
     nombre:"PERFUME 4",
     precio:90,
     descripcion:"Descripción del perfume",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png", "Img/perfume2_3.png", "Img/perfume2_4.png"]
 },
 {
     nombre:"PERFUME 5",
     precio:150,
     descripcion:"Descripción del perfume",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"] // SOLO 2 IMÁGENES
 },
 {
     nombre:"PERFUME 6",
     precio:110,
     descripcion:"Descripción del perfume",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png", "Img/perfume2_3.png"]
 },
 {
     nombre:"PERFUME 7",
     precio:95,
     descripcion:"Descripción del perfume",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png"] // SOLO 1 IMAGEN
 },
 {
     nombre:"PERFUME 8",
     precio:140,
     descripcion:"Descripción del perfume",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"] // SOLO 2 IMÁGENES
 }
 // Puedes agregar más hasta 40
 ];
@@ -96,7 +96,7 @@ const decants = [
         "7ml": 40
     },
     descripcion:"Descripción del decant - Fragancia premium",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"] // 2 IMÁGENES
 },
 {
     nombre:"DECANT 2",
@@ -106,7 +106,7 @@ const decants = [
         "7ml": 45
     },
     descripcion:"Descripción del decant - Aroma exclusivo",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png"] // 1 IMAGEN
 },
 {
     nombre:"DECANT 3",
@@ -116,7 +116,7 @@ const decants = [
         "7ml": 50
     },
     descripcion:"Descripción del decant - Esencia duradera",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png", "Img/perfume2_3.png"] // 3 IMÁGENES
 },
 {
     nombre:"DECANT 4",
@@ -126,7 +126,7 @@ const decants = [
         "7ml": 55
     },
     descripcion:"Descripción del decant - Notas especiales",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png"] // 1 IMAGEN
 },
 {
     nombre:"DECANT 5",
@@ -136,7 +136,7 @@ const decants = [
         "7ml": 60
     },
     descripcion:"Descripción del decant - Fragancia intensa",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png"] // 2 IMÁGENES
 },
 {
     nombre:"DECANT 6",
@@ -146,7 +146,7 @@ const decants = [
         "7ml": 65
     },
     descripcion:"Descripción del decant - Aroma premium",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png"] // 1 IMAGEN
 },
 {
     nombre:"DECANT 7",
@@ -156,7 +156,7 @@ const decants = [
         "7ml": 70
     },
     descripcion:"Descripción del decant - Esencia exclusiva",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png", "Img/perfume2_3.png"] // 3 IMÁGENES
 },
 {
     nombre:"DECANT 8",
@@ -166,17 +166,37 @@ const decants = [
         "7ml": 75
     },
     descripcion:"Descripción del decant - Fragancia única",
-    imagenes:["Img/perfume2_1.png"]
+    imagenes:["Img/perfume2_1.png"] // 1 IMAGEN
 }
 // Puedes agregar más decants aquí
 ];
 
-/* ===== GENERAR CATÁLOGO DE PERFUMES ===== */
+/* ===== GENERAR CATÁLOGO DE PERFUMES CON CARRUSEL ===== */
 const catPerfumes=document.getElementById("catPerfumes");
 perfumes.forEach(p=>{
+    // Generar las imágenes para el carrusel
+    let imagenesHTML = '';
+    p.imagenes.forEach(img => {
+        imagenesHTML += `<img src="${img}" alt="${p.nombre}" class="carrusel-img">`;
+    });
+    
+    // Si hay más de una imagen, añadir indicadores y flechas
+    const tieneMultiples = p.imagenes.length > 1;
+    
     catPerfumes.innerHTML+=`
     <div class="card">
-        <img src="${p.imagenes[0]}" alt="${p.nombre}">
+        <div class="carrusel-container" data-index="0" data-total="${p.imagenes.length}">
+            <div class="carrusel-track">
+                ${imagenesHTML}
+            </div>
+            ${tieneMultiples ? `
+            <button class="carrusel-flecha izquierda" onclick="moverCarrusel(this, -1)">❮</button>
+            <button class="carrusel-flecha derecha" onclick="moverCarrusel(this, 1)">❯</button>
+            <div class="carrusel-indicadores">
+                ${p.imagenes.map((_, i) => `<span class="indicador ${i === 0 ? 'active' : ''}" data-pos="${i}"></span>`).join('')}
+            </div>
+            ` : ''}
+        </div>
         <div class="card-info">
             <h4>${p.nombre}</h4>
             <p style="color: #d4af37; font-weight: bold; font-size: 1.2rem;">S/ ${p.precio}</p>
@@ -192,9 +212,29 @@ decants.forEach((d, index)=>{
     // Precio inicial (3ml por defecto)
     const precioInicial = d.precios["3ml"];
     
+    // Generar las imágenes para el carrusel
+    let imagenesHTML = '';
+    d.imagenes.forEach(img => {
+        imagenesHTML += `<img src="${img}" alt="${d.nombre}" class="carrusel-img">`;
+    });
+    
+    // Si hay más de una imagen, añadir indicadores y flechas
+    const tieneMultiples = d.imagenes.length > 1;
+    
     catDecants.innerHTML+=`
     <div class="card">
-        <img src="${d.imagenes[0]}" alt="${d.nombre}">
+        <div class="carrusel-container" data-index="0" data-total="${d.imagenes.length}">
+            <div class="carrusel-track">
+                ${imagenesHTML}
+            </div>
+            ${tieneMultiples ? `
+            <button class="carrusel-flecha izquierda" onclick="moverCarrusel(this, -1)">❮</button>
+            <button class="carrusel-flecha derecha" onclick="moverCarrusel(this, 1)">❯</button>
+            <div class="carrusel-indicadores">
+                ${d.imagenes.map((_, i) => `<span class="indicador ${i === 0 ? 'active' : ''}" data-pos="${i}"></span>`).join('')}
+            </div>
+            ` : ''}
+        </div>
         <div class="card-info">
             <h4>${d.nombre}</h4>
             <div class="opciones-ml" data-index="${index}">
@@ -210,6 +250,113 @@ decants.forEach((d, index)=>{
         <button class="btn" onclick="addDecantToCart(${index})" style="background: #d4af37; color: #000; width: auto; margin: 10px 20px; padding: 12px 20px;">Añadir</button>
     </div>`;
 });
+
+/* ===== FUNCIONES PARA EL CARRUSEL ===== */
+// Función para mover el carrusel con las flechas
+window.moverCarrusel = function(boton, direccion) {
+    const container = boton.closest('.carrusel-container');
+    const track = container.querySelector('.carrusel-track');
+    const indicadores = container.querySelectorAll('.indicador');
+    const imgWidth = track.querySelector('img').offsetWidth + 10; // 10 es el gap
+    
+    let currentIndex = parseInt(container.dataset.index);
+    const total = parseInt(container.dataset.total);
+    
+    // Calcular nuevo índice
+    let newIndex = currentIndex + direccion;
+    
+    // Validar límites
+    if (newIndex < 0) newIndex = total - 1;
+    if (newIndex >= total) newIndex = 0;
+    
+    // Mover el scroll
+    track.scrollTo({
+        left: newIndex * imgWidth,
+        behavior: 'smooth'
+    });
+    
+    // Actualizar índice y puntitos
+    container.dataset.index = newIndex;
+    actualizarIndicadores(container, newIndex);
+};
+
+// Función para actualizar los indicadores
+function actualizarIndicadores(container, index) {
+    const indicadores = container.querySelectorAll('.indicador');
+    indicadores.forEach((ind, i) => {
+        if (i === index) {
+            ind.classList.add('active');
+        } else {
+            ind.classList.remove('active');
+        }
+    });
+}
+
+// Función para el scroll horizontal con el mouse
+function initCarruselScroll() {
+    document.querySelectorAll('.carrusel-container').forEach(container => {
+        const track = container.querySelector('.carrusel-track');
+        const total = parseInt(container.dataset.total);
+        
+        if (total <= 1) return; // No hay scroll si solo hay una imagen
+        
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        // Scroll con la rueda del mouse (horizontal)
+        container.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            track.scrollLeft += e.deltaY;
+            actualizarIndicadorPorScroll(container);
+        });
+        
+        // Scroll con arrastre del mouse
+        container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            container.classList.add('active');
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = track.scrollLeft;
+        });
+        
+        container.addEventListener('mouseleave', () => {
+            isDown = false;
+            container.classList.remove('active');
+        });
+        
+        container.addEventListener('mouseup', () => {
+            isDown = false;
+            container.classList.remove('active');
+        });
+        
+        container.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            track.scrollLeft = scrollLeft - walk;
+            actualizarIndicadorPorScroll(container);
+        });
+        
+        // Actualizar cuando el scroll termina
+        track.addEventListener('scroll', () => {
+            actualizarIndicadorPorScroll(container);
+        });
+    });
+}
+
+function actualizarIndicadorPorScroll(container) {
+    const track = container.querySelector('.carrusel-track');
+    const imgWidth = track.querySelector('img').offsetWidth + 10;
+    const scrollPosition = track.scrollLeft;
+    const newIndex = Math.round(scrollPosition / imgWidth);
+    const total = parseInt(container.dataset.total);
+    
+    if (newIndex >= 0 && newIndex < total) {
+        container.dataset.index = newIndex;
+        actualizarIndicadores(container, newIndex);
+    }
+}
 
 // Función para cambiar el precio cuando se selecciona un ML
 document.addEventListener('click', function(e) {
@@ -428,3 +575,6 @@ function comprar(){
     document.getElementById('direccion').value = '';
     document.getElementById('detalle').value = '';
 }
+
+// Inicializar carruseles después de cargar los productos
+setTimeout(initCarruselScroll, 500);
