@@ -166,14 +166,14 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 150%;
     margin-top: -50px
     margin: 0;
 }
 
 .flotando-img {
     max-width: 380px;
-    width: 100%;
+    width: 150%;
     height: auto;
     margin-top: -80px
     filter: drop-shadow(0 25px 35px rgba(212, 175, 55, 0.5));
@@ -601,7 +601,7 @@ input,textarea{
     }
     
     .flotando-img {
-        max-width: 280px;
+        max-width: 360px;
     }
     
     .redes-sociales {
@@ -622,7 +622,7 @@ input,textarea{
     }
     
     .flotando-img {
-        max-width: 220px;
+        max-width: 320px;
     }
     
     .redes-sociales {
