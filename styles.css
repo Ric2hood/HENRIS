@@ -96,10 +96,8 @@ nav{
     pointer-events:none;
     transform:translateY(30px);
     transition:.6s;
-    overflow:hidden;
-    /* ESTILOS PARA SCROLL COMPLETO */
-    overflow-y: visible;
-    max-height: none;
+    overflow-y: auto;
+    max-height: calc(100vh - 70px);
     height: auto;
     min-height: calc(100vh - 70px);
     padding-bottom: 40px;
@@ -139,28 +137,122 @@ h2{
     flex-direction: row;
     align-items: center;
     background: rgba(255, 255, 255, 0.05);
-    border-left: 5px solid var(--dorado); /* Línea DORADA al costado */
+    border-left: 5px solid var(--dorado);
     border-radius: 12px;
     padding: 0;
-    height: 140px; /* Altura fija */
+    height: 180px;
     transition: all 0.3s ease;
     gap: 0;
 }
 
 #catPerfumes .card:hover {
-    transform: translateX(8px); /* Efecto diferente al hover */
-    background: rgba(212, 175, 55, 0.1); /* Fondo dorado suave al hover */
+    transform: translateX(8px);
+    background: rgba(212, 175, 55, 0.1);
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
 }
 
-/* Imagen para perfumes - ajustada */
-#catPerfumes .card img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
+/* ===== CARRUSEL DE IMÁGENES ===== */
+.carrusel-container {
+    width: 140px;
+    height: 160px;
     margin: 10px;
+    overflow: hidden;
+    position: relative;
     border-radius: 8px;
     background: rgba(0, 0, 0, 0.4);
+    cursor: grab;
+}
+
+.carrusel-container.active {
+    cursor: grabbing;
+}
+
+.carrusel-track {
+    display: flex;
+    gap: 10px;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.carrusel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carrusel-img {
+    width: 140px;
+    height: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+/* ===== FLECHAS DEL CARRUSEL ===== */
+.carrusel-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: rgba(212, 175, 55, 0.7);
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.carrusel-container:hover .carrusel-flecha {
+    opacity: 1;
+}
+
+.carrusel-flecha:hover {
+    background: var(--dorado);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carrusel-flecha.izquierda {
+    left: 5px;
+}
+
+.carrusel-flecha.derecha {
+    right: 5px;
+}
+
+/* Indicadores del carrusel */
+.carrusel-indicadores {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    z-index: 5;
+}
+
+.indicador {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.indicador.active {
+    background: var(--dorado);
+    transform: scale(1.2);
 }
 
 /* Información de la tarjeta perfume */
@@ -192,7 +284,7 @@ h2{
     margin-top: 5px;
 }
 
-/* Botón DORADO para perfumes - al costado */
+/* Botón DORADO para perfumes */
 #catPerfumes .btn {
     width: auto;
     min-width: 120px;
@@ -205,15 +297,17 @@ h2{
     transition: all 0.3s ease;
     align-self: center;
     color: #000;
+    border: none;
+    cursor: pointer;
 }
 
 #catPerfumes .btn:hover {
-    background: #c19b2e; /* Dorado más oscuro al hover */
+    background: #c19b2e;
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
 }
 
-/* ===== DISEÑO ESPECIAL PARA DECANTS (UNA COLUMNA DORADA) ===== */
+/* ===== DISEÑO ESPECIAL PARA DECANTS ===== */
 #catDecants {
     display: flex;
     flex-direction: column;
@@ -224,34 +318,31 @@ h2{
     margin-bottom: 40px;
 }
 
-/* Tarjeta especial para decants - Layout horizontal DORADO */
+/* Tarjeta especial para decants */
 #catDecants .card {
     display: flex;
     flex-direction: row;
     align-items: center;
     background: rgba(255, 255, 255, 0.05);
-    border-left: 5px solid var(--dorado); /* Línea DORADA al costado */
+    border-left: 5px solid var(--dorado);
     border-radius: 12px;
     padding: 0;
-    height: 140px; /* Altura fija */
+    height: 180px;
     transition: all 0.3s ease;
     gap: 0;
 }
 
 #catDecants .card:hover {
-    transform: translateX(8px); /* Efecto diferente al hover */
-    background: rgba(212, 175, 55, 0.1); /* Fondo dorado suave al hover */
+    transform: translateX(8px);
+    background: rgba(212, 175, 55, 0.1);
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
 }
 
-/* Imagen para decants - ajustada */
-#catDecants .card img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
+/* Imagen para decants - usando el mismo carrusel */
+#catDecants .carrusel-container {
+    width: 140px;
+    height: 160px;
     margin: 10px;
-    border-radius: 8px;
-    background: rgba(0, 0, 0, 0.4);
 }
 
 /* Información de la tarjeta decant */
@@ -283,7 +374,7 @@ h2{
     margin-top: 5px;
 }
 
-/* Botón DORADO para decants - al costado */
+/* Botón DORADO para decants */
 #catDecants .btn {
     width: auto;
     min-width: 120px;
@@ -296,12 +387,44 @@ h2{
     transition: all 0.3s ease;
     align-self: center;
     color: #000;
+    border: none;
+    cursor: pointer;
 }
 
 #catDecants .btn:hover {
-    background: #c19b2e; /* Dorado más oscuro al hover */
+    background: #c19b2e;
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+/* Opciones ML */
+.opciones-ml {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.btn-ml {
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-ml:hover {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: #d4af37;
+}
+
+.btn-ml.active {
+    background: #d4af37;
+    color: #000;
+    border-color: #d4af37;
 }
 
 /* Responsive para perfumes y decants */
@@ -313,11 +436,22 @@ h2{
         padding: 15px;
     }
     
-    #catPerfumes .card img,
-    #catDecants .card img {
+    #catPerfumes .carrusel-container,
+    #catDecants .carrusel-container {
         width: 100%;
-        height: 180px;
+        height: 200px;
         margin: 0 0 15px 0;
+    }
+    
+    .carrusel-img {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .carrusel-flecha {
+        opacity: 1; /* Siempre visibles en móvil */
+        width: 30px;
+        height: 30px;
     }
     
     #catPerfumes .btn,
@@ -456,38 +590,4 @@ input,textarea{
     width: 70%;             
     height: 70%;
     object-fit: contain;    
-}
-/* ===== OPCIONES DE ML PARA DECANTS ===== */
-.opciones-ml {
-    display: flex;
-    gap: 8px;
-    margin-top: 8px;
-}
-
-.btn-ml {
-    padding: 6px 12px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    color: #fff;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-
-.btn-ml:hover {
-    background: rgba(212, 175, 55, 0.2);
-    border-color: #d4af37;
-}
-
-.btn-ml.active {
-    background: #d4af37;
-    color: #000;
-    border-color: #d4af37;
-}
-
-/* Ajustar el botón Añadir para decants con opciones */
-#catDecants .card .btn {
-    margin-top: 15px;
 }
