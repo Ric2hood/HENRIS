@@ -124,7 +124,7 @@ h2{
     margin-bottom:30px;
 }
 
-/* ===== INICIO - VERSIÓN ESTABLE CON REDES VISIBLES ===== */
+/* ===== INICIO - PERFUME SUBIDO ===== */
 #inicio.page {
     overflow-y: hidden;
     display: flex;
@@ -136,10 +136,11 @@ h2{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
     height: 100%;
-    gap: 20px;
+    padding: 0;
+    gap: 5px;
 }
 
 .inicio-superior {
@@ -155,18 +156,18 @@ h2{
     font-size: 1.2rem;
     letter-spacing: 4px;
     color: var(--blanco);
-    margin-top: 10px;
+    margin-top: 5px;
     text-align: center;
     opacity: 0.9;
 }
 
-/* PERFUME FLOTANTE - TAMAÑO CONTROLADO */
+/* PERFUME FLOTANTE - SUBIDO */
 .perfume-flotante {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 10px 0;
+    margin: 0;
 }
 
 .flotando-img {
@@ -191,8 +192,8 @@ h2{
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 20px 0 10px 0;
-    padding: 10px 0;
+    margin: 10px 0 0 0;
+    padding: 5px 0;
 }
 
 .red-social {
@@ -603,6 +604,7 @@ input,textarea{
     
     .redes-sociales {
         gap: 35px;
+        margin: 5px 0 0 0;
     }
     
     .red-icon {
@@ -623,10 +625,11 @@ input,textarea{
     
     .redes-sociales {
         gap: 28px;
+        margin: 5px 0 0 0;
     }
     
     .red-icon {
         width: 34px;
         height: 34px;
     }
-}
+    }
