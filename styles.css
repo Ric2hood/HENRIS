@@ -100,7 +100,7 @@ nav{
     max-height: calc(100vh - 70px);
     height: auto;
     min-height: calc(100vh - 70px);
-    padding-bottom: 120px; /* AUMENTADO: más espacio para botones de Chrome */
+    padding-bottom: 120px; /* AUMENTADO para botones de Chrome */
 }
 
 .page.active{
@@ -120,7 +120,48 @@ h2{
     color:var(--dorado);
 }
 
-/* ===== DISEÑO ESPECIAL PARA PERFUMES (UNA COLUMNA DORADA) ===== */
+/* ===== INICIO CON PERFUME FLOTANTE ===== */
+.inicio-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 200px);
+    width: 100%;
+    position: relative;
+}
+
+.perfume-flotante {
+    margin: 30px 0 40px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flotando-img {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 15px 25px rgba(212, 175, 55, 0.5));
+    animation: flotar 4s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+        filter: drop-shadow(0 25px 35px rgba(212, 175, 55, 0.7));
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* ===== DISEÑO ESPECIAL PARA PERFUMES ===== */
 #catPerfumes {
     display: flex;
     flex-direction: column;
@@ -131,7 +172,6 @@ h2{
     margin-bottom: 40px;
 }
 
-/* Tarjeta especial para perfumes - Layout horizontal DORADO */
 #catPerfumes .card {
     display: flex;
     flex-direction: row;
@@ -146,6 +186,36 @@ h2{
 }
 
 #catPerfumes .card:hover {
+    transform: translateX(8px);
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+}
+
+/* ===== DISEÑO ESPECIAL PARA DECANTS ===== */
+#catDecants {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#catDecants .card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 5px solid var(--dorado);
+    border-radius: 12px;
+    padding: 0;
+    height: 180px;
+    transition: all 0.3s ease;
+    gap: 0;
+}
+
+#catDecants .card:hover {
     transform: translateX(8px);
     background: rgba(212, 175, 55, 0.1);
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
@@ -255,8 +325,8 @@ h2{
     transform: scale(1.2);
 }
 
-/* Información de la tarjeta perfume */
-#catPerfumes .card-info {
+/* Información de las tarjetas */
+.card-info {
     flex: 1;
     padding: 15px 20px;
     display: flex;
@@ -265,27 +335,27 @@ h2{
     height: 100%;
 }
 
-#catPerfumes .card-info h4 {
+.card-info h4 {
     color: var(--dorado);
     font-size: 1.3rem;
     margin-bottom: 5px;
 }
 
-#catPerfumes .card-info p {
+.card-info p {
     color: var(--dorado);
     font-weight: bold;
     font-size: 1.2rem;
     margin-bottom: 5px;
 }
 
-#catPerfumes .perfume-desc {
+.perfume-desc {
     font-size: 0.9rem;
     opacity: 0.9;
     margin-top: 5px;
 }
 
-/* Botón DORADO para perfumes */
-#catPerfumes .btn {
+/* Botones */
+.btn {
     width: auto;
     min-width: 120px;
     margin: 10px 20px;
@@ -301,97 +371,7 @@ h2{
     cursor: pointer;
 }
 
-#catPerfumes .btn:hover {
-    background: #c19b2e;
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
-}
-
-/* ===== DISEÑO ESPECIAL PARA DECANTS ===== */
-#catDecants {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 800px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-/* Tarjeta especial para decants */
-#catDecants .card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    border-left: 5px solid var(--dorado);
-    border-radius: 12px;
-    padding: 0;
-    height: 180px;
-    transition: all 0.3s ease;
-    gap: 0;
-}
-
-#catDecants .card:hover {
-    transform: translateX(8px);
-    background: rgba(212, 175, 55, 0.1);
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
-}
-
-/* Imagen para decants - usando el mismo carrusel */
-#catDecants .carrusel-container {
-    width: 140px;
-    height: 160px;
-    margin: 10px;
-}
-
-/* Información de la tarjeta decant */
-#catDecants .card-info {
-    flex: 1;
-    padding: 15px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-}
-
-#catDecants .card-info h4 {
-    color: var(--dorado);
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-}
-
-#catDecants .card-info p {
-    color: var(--dorado);
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-#catDecants .perfume-desc {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    margin-top: 5px;
-}
-
-/* Botón DORADO para decants */
-#catDecants .btn {
-    width: auto;
-    min-width: 120px;
-    margin: 10px 20px;
-    padding: 12px 20px;
-    background: var(--dorado);
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    align-self: center;
-    color: #000;
-    border: none;
-    cursor: pointer;
-}
-
-#catDecants .btn:hover {
+.btn:hover {
     background: #c19b2e;
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
@@ -425,40 +405,6 @@ h2{
     background: #d4af37;
     color: #000;
     border-color: #d4af37;
-}
-
-/* Responsive para perfumes y decants */
-@media(max-width: 768px){
-    #catPerfumes .card,
-    #catDecants .card {
-        height: auto;
-        flex-direction: column;
-        padding: 15px;
-    }
-    
-    #catPerfumes .carrusel-container,
-    #catDecants .carrusel-container {
-        width: 100%;
-        height: 200px;
-        margin: 0 0 15px 0;
-    }
-    
-    .carrusel-img {
-        width: 100%;
-        height: 200px;
-    }
-    
-    .carrusel-flecha {
-        opacity: 1;
-        width: 30px;
-        height: 30px;
-    }
-    
-    #catPerfumes .btn,
-    #catDecants .btn {
-        width: 100%;
-        margin: 15px 0 0 0;
-    }
 }
 
 /* CARRITO ITEMS */
@@ -508,46 +454,6 @@ input,textarea{
     max-width:600px;
 }
 
-/* BOTÓN DE COMPRAR EN CARRITO - DORADO */
-#carrito .btn {
-    width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
-    padding: 15px;
-    background: var(--dorado);
-    border: none;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    color: #000;
-    transition: all 0.3s ease;
-}
-
-#carrito .btn:hover {
-    background: #c19b2e;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-}
-
-/* Botones de cantidad en el carrito */
-.carrito-item-info button {
-    background: var(--dorado);
-    color: #000;
-    border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.2s ease;
-}
-
-.carrito-item-info button:hover {
-    background: #c19b2e;
-    transform: scale(1.1);
-}
-
 /* Total del carrito */
 #totalCarrito {
     margin: 20px 0;
@@ -592,10 +498,10 @@ input,textarea{
     object-fit: contain;    
 }
 
-/* ===== REDES SOCIALES - SUBIDAS PARA EVITAR BOTONES DE CHROME ===== */
+/* ===== REDES SOCIALES - SUBIDAS ===== */
 .redes-sociales {
     position: absolute;
-    bottom: 90px;  /* SUBIDO de 40px a 90px */
+    bottom: 90px;  /* SUBIDO para evitar botones de Chrome */
     left: 0;
     right: 0;
     display: flex;
@@ -622,28 +528,67 @@ input,textarea{
     height: 36px;
 }
 
-/* Colores oficiales de cada red social */
-.red-social.tiktok .red-icon {
-    fill: #ffffff;
-}
+/* Colores oficiales */
+.red-social.tiktok .red-icon { fill: #ffffff; }
+.red-social.instagram .red-icon { fill: #d62976; }
+.red-social.facebook .red-icon { fill: #1877f2; }
 
-.red-social.instagram .red-icon {
-    fill: #d62976;
-}
-
-.red-social.facebook .red-icon {
-    fill: #1877f2;
-}
-
-/* Para pantallas pequeñas */
-@media(max-width: 768px) {
+/* ===== RESPONSIVE ===== */
+@media(max-width: 768px){
+    #catPerfumes .card,
+    #catDecants .card {
+        height: auto;
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    #catPerfumes .carrusel-container,
+    #catDecants .carrusel-container {
+        width: 100%;
+        height: 200px;
+        margin: 0 0 15px 0;
+    }
+    
+    .carrusel-img {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .carrusel-flecha {
+        opacity: 1;
+        width: 30px;
+        height: 30px;
+    }
+    
+    #catPerfumes .btn,
+    #catDecants .btn {
+        width: 100%;
+        margin: 15px 0 0 0;
+    }
+    
+    .flotando-img {
+        max-width: 200px;
+    }
+    
+    @keyframes flotar {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0px); }
+    }
+    
     .redes-sociales {
-        bottom: 80px;  /* SUBIDO de 30px a 80px en móvil */
+        bottom: 80px;
         gap: 25px;
     }
     
     .red-icon {
         width: 32px;
         height: 32px;
+    }
+}
+
+@media(max-width: 480px) {
+    .flotando-img {
+        max-width: 160px;
     }
 }
