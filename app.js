@@ -359,7 +359,19 @@ function cambiarCantidad(id, cambio) {
     }
 }
 
-/* ===== WHATSAPP ACTUALIZADO CON DISTRITO Y PROVINCIA ===== */
+/* ===== CONTADOR DE PEDIDOS (SOLO PARA TI) ===== */
+function obtenerNumeroPedido() {
+    let contador = localStorage.getItem('contadorPedidos');
+    if (!contador) {
+        contador = 1;
+    } else {
+        contador = parseInt(contador) + 1;
+    }
+    localStorage.setItem('contadorPedidos', contador);
+    return contador;
+}
+
+/* ===== WHATSAPP ACTUALIZADO CON NÚMERO DE PEDIDO ===== */
 function comprar(){
     if(carrito.length === 0){
         mostrarNotificacion('Tu carrito está vacío');
@@ -376,7 +388,10 @@ function comprar(){
         return;
     }
     
-    let m="🛒 *PEDIDO HENRIS* %0A%0A";
+    // Obtener número de pedido (solo para ti)
+    const numeroPedido = obtenerNumeroPedido();
+    
+    let m = `🛒 *PEDIDO #${numeroPedido}* %0A%0A`; // Solo tú ves esto
     let total = 0;
     
     carrito.forEach(i=>{
@@ -385,7 +400,7 @@ function comprar(){
     });
     
     m+=`%0A*TOTAL: S/ ${total}*%0A%0A`;
-    m+=`👤 *Datos de envío:*%0A`;
+    m+=`👤 *Datos del cliente:*%0A`;
     m+=`Nombre: ${nombre}%0A`;
     m+=`Apellidos: ${document.getElementById('apellido').value || 'No especificado'}%0A`;
     m+=`Dirección: ${direccion}%0A`;
@@ -394,6 +409,9 @@ function comprar(){
     m+=`Referencia: ${document.getElementById('detalle').value || 'Ninguna'}`;
     
     window.open("https://wa.me/51910163936?text="+m);
+    
+    // Notificación para el cliente (no muestra el número)
+    mostrarNotificacion('✅ Pedido enviado por WhatsApp');
     
     carrito = [];
     actualizarCarrito();
@@ -404,6 +422,12 @@ function comprar(){
     document.getElementById('distrito').value = '';
     document.getElementById('provincia').value = '';
     document.getElementById('detalle').value = '';
+}
+
+/* ===== FUNCIÓN PARA REINICIAR CONTADOR (SOLO PARA PRUEBAS) ===== */
+function reiniciarContadorPedidos() {
+    localStorage.setItem('contadorPedidos', '0');
+    mostrarNotificacion('Contador reiniciado a 0');
 }
 
 /* ===== INICIAR CARRUSELES ===== */
