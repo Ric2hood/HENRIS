@@ -591,3 +591,66 @@ input,textarea{
     height: 70%;
     object-fit: contain;    
 }
+/* ===== REDES SOCIALES - EN LA PARTE INFERIOR ===== */
+.redes-sociales {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.red-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.red-social:hover {
+    transform: translateY(-5px);
+}
+
+.red-icon {
+    width: 36px;
+    height: 36px;
+}
+
+/* Colores oficiales de cada red social */
+.red-social.tiktok .red-icon {
+    fill: #ffffff; /* Blanco (el oficial de TikTok) */
+}
+
+.red-social.instagram .red-icon {
+    fill: url(#instagram-gradient); /* Gradiente de Instagram */
+}
+
+/* Para Instagram necesitamos un gradiente, lo haremos con CSS puro */
+.red-social.instagram .red-icon {
+    fill: #d62976; /* Color base de Instagram (rosa/morado) */
+}
+
+/* Alternativa: podemos usar el color oficial de Instagram */
+/* Si quieres el gradiente exacto, necesitarías SVG más complejo */
+
+.red-social.facebook .red-icon {
+    fill: #1877f2; /* Azul oficial de Facebook */
+}
+
+/* Para pantallas pequeñas */
+@media(max-width: 768px) {
+    .redes-sociales {
+        bottom: 30px;
+        gap: 25px;
+    }
+    
+    .red-icon {
+        width: 32px;
+        height: 32px;
+    }
+}
