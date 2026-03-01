@@ -47,6 +47,8 @@ nav{
     text-transform:uppercase;
     cursor:pointer;
     position:relative;
+    color:var(--blanco);
+    text-decoration:none;
 }
 
 .nav-center a::after{
@@ -64,7 +66,7 @@ nav{
 
 #cartBtn{
     position:absolute;
-    right:8px;
+    right:20px;
     cursor:pointer;
 }
 
@@ -96,11 +98,10 @@ nav{
     pointer-events:none;
     transform:translateY(30px);
     transition:.6s;
-    overflow-y: auto;
-    max-height: calc(100vh - 70px);
-    height: auto;
-    min-height: calc(100vh - 70px);
-    padding-bottom: 120px; /* AUMENTADO para botones de Chrome */
+    overflow-y:auto;
+    max-height:calc(100vh - 70px);
+    min-height:calc(100vh - 70px);
+    padding-bottom:40px;
 }
 
 .page.active{
@@ -114,25 +115,47 @@ h1{
     font-size:4.5rem;
     letter-spacing:14px;
     color:var(--dorado);
+    margin:0;
+    line-height:1;
 }
 
 h2{
     color:var(--dorado);
+    margin-bottom:30px;
 }
 
-/* ===== INICIO CON PERFUME FLOTANTE ===== */
+/* ===== INICIO CON SCROLL ===== */
 .inicio-contenido {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 200px);
+    justify-content: flex-start;
     width: 100%;
-    position: relative;
+    min-height: 100%;
+    padding: 20px 0 40px 0;
 }
 
+.inicio-superior {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px; /* PEGADO A LA BARRA */
+}
+
+.subtitulo {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    color: var(--blanco);
+    margin-top: 10px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+/* PERFUME FLOTANTE - MÁS GRANDE */
 .perfume-flotante {
-    margin: 30px 0 40px 0;
+    margin: 40px 0 60px 0;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -140,7 +163,7 @@ h2{
 }
 
 .flotando-img {
-    max-width: 280px;
+    max-width: 280px;  /* MÁS GRANDE PERO NO ENORME */
     width: 100%;
     height: auto;
     filter: drop-shadow(0 15px 25px rgba(212, 175, 55, 0.5));
@@ -149,17 +172,43 @@ h2{
 }
 
 @keyframes flotar {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-        filter: drop-shadow(0 25px 35px rgba(212, 175, 55, 0.7));
-    }
-    100% {
-        transform: translateY(0px);
-    }
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); filter: drop-shadow(0 25px 35px rgba(212, 175, 55, 0.7)); }
+    100% { transform: translateY(0px); }
 }
+
+/* REDES SOCIALES AL PIE */
+.redes-sociales {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
+    padding: 20px 0;
+}
+
+.red-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.red-social:hover {
+    transform: translateY(-5px);
+}
+
+.red-icon {
+    width: 40px;
+    height: 40px;
+}
+
+/* Colores oficiales */
+.red-social.tiktok .red-icon { fill: #ffffff; }
+.red-social.instagram .red-icon { fill: #d62976; }
+.red-social.facebook .red-icon { fill: #1877f2; }
 
 /* ===== DISEÑO ESPECIAL PARA PERFUMES ===== */
 #catPerfumes {
@@ -498,41 +547,6 @@ input,textarea{
     object-fit: contain;    
 }
 
-/* ===== REDES SOCIALES - SUBIDAS ===== */
-.redes-sociales {
-    position: absolute;
-    bottom: 90px;  /* SUBIDO para evitar botones de Chrome */
-    left: 0;
-    right: 0;
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.red-social {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.red-social:hover {
-    transform: translateY(-5px);
-}
-
-.red-icon {
-    width: 36px;
-    height: 36px;
-}
-
-/* Colores oficiales */
-.red-social.tiktok .red-icon { fill: #ffffff; }
-.red-social.instagram .red-icon { fill: #d62976; }
-.red-social.facebook .red-icon { fill: #1877f2; }
-
 /* ===== RESPONSIVE ===== */
 @media(max-width: 768px){
     #catPerfumes .card,
@@ -566,29 +580,46 @@ input,textarea{
         margin: 15px 0 0 0;
     }
     
-    .flotando-img {
-        max-width: 200px;
+    h1 {
+        font-size: 3.5rem;
+        letter-spacing: 8px;
     }
     
-    @keyframes flotar {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-15px); }
-        100% { transform: translateY(0px); }
+    .subtitulo {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+    
+    .flotando-img {
+        max-width: 220px;
     }
     
     .redes-sociales {
-        bottom: 80px;
-        gap: 25px;
+        gap: 30px;
     }
     
     .red-icon {
-        width: 32px;
-        height: 32px;
+        width: 35px;
+        height: 35px;
     }
 }
 
 @media(max-width: 480px) {
+    h1 {
+        font-size: 2.8rem;
+        letter-spacing: 6px;
+    }
+    
     .flotando-img {
-        max-width: 160px;
+        max-width: 180px;
+    }
+    
+    .redes-sociales {
+        gap: 25px;
+    }
+    
+    .red-icon {
+        width: 30px;
+        height: 30px;
     }
 }
