@@ -100,7 +100,7 @@ nav{
     max-height: calc(100vh - 70px);
     height: auto;
     min-height: calc(100vh - 70px);
-    padding-bottom: 40px;
+    padding-bottom: 120px; /* AUMENTADO: más espacio para botones de Chrome */
 }
 
 .page.active{
@@ -449,7 +449,7 @@ h2{
     }
     
     .carrusel-flecha {
-        opacity: 1; /* Siempre visibles en móvil */
+        opacity: 1;
         width: 30px;
         height: 30px;
     }
@@ -591,10 +591,11 @@ input,textarea{
     height: 70%;
     object-fit: contain;    
 }
-/* ===== REDES SOCIALES - EN LA PARTE INFERIOR ===== */
+
+/* ===== REDES SOCIALES - SUBIDAS PARA EVITAR BOTONES DE CHROME ===== */
 .redes-sociales {
     position: absolute;
-    bottom: 40px;
+    bottom: 90px;  /* SUBIDO de 40px a 90px */
     left: 0;
     right: 0;
     display: flex;
@@ -623,29 +624,21 @@ input,textarea{
 
 /* Colores oficiales de cada red social */
 .red-social.tiktok .red-icon {
-    fill: #ffffff; /* Blanco (el oficial de TikTok) */
+    fill: #ffffff;
 }
 
 .red-social.instagram .red-icon {
-    fill: url(#instagram-gradient); /* Gradiente de Instagram */
+    fill: #d62976;
 }
-
-/* Para Instagram necesitamos un gradiente, lo haremos con CSS puro */
-.red-social.instagram .red-icon {
-    fill: #d62976; /* Color base de Instagram (rosa/morado) */
-}
-
-/* Alternativa: podemos usar el color oficial de Instagram */
-/* Si quieres el gradiente exacto, necesitarías SVG más complejo */
 
 .red-social.facebook .red-icon {
-    fill: #1877f2; /* Azul oficial de Facebook */
+    fill: #1877f2;
 }
 
 /* Para pantallas pequeñas */
 @media(max-width: 768px) {
     .redes-sociales {
-        bottom: 30px;
+        bottom: 80px;  /* SUBIDO de 30px a 80px en móvil */
         gap: 25px;
     }
     
