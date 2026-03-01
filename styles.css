@@ -132,7 +132,7 @@ h2{
     justify-content: flex-start;
     width: 100%;
     min-height: 100%;
-    padding: 20px 0 40px 0;
+    padding: 0 0 40px 0;
 }
 
 .inicio-superior {
@@ -141,21 +141,21 @@ h2{
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-top: 10px; /* PEGADO A LA BARRA */
+    margin-top: 0;
 }
 
 .subtitulo {
     font-size: 1.2rem;
     letter-spacing: 4px;
     color: var(--blanco);
-    margin-top: 10px;
+    margin-top: 5px;
     text-align: center;
     opacity: 0.9;
 }
 
 /* PERFUME FLOTANTE - MÁS GRANDE */
 .perfume-flotante {
-    margin: 40px 0 60px 0;
+    margin: 30px 0 50px 0;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -163,7 +163,7 @@ h2{
 }
 
 .flotando-img {
-    max-width: 280px;  /* MÁS GRANDE PERO NO ENORME */
+    max-width: 320px;
     width: 100%;
     height: auto;
     filter: drop-shadow(0 15px 25px rgba(212, 175, 55, 0.5));
@@ -591,7 +591,7 @@ input,textarea{
     }
     
     .flotando-img {
-        max-width: 220px;
+        max-width: 260px;
     }
     
     .redes-sociales {
@@ -611,7 +611,7 @@ input,textarea{
     }
     
     .flotando-img {
-        max-width: 180px;
+        max-width: 220px;
     }
     
     .redes-sociales {
@@ -622,4 +622,4 @@ input,textarea{
         width: 30px;
         height: 30px;
     }
-}
+        }
