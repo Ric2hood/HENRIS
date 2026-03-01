@@ -124,15 +124,22 @@ h2{
     margin-bottom:30px;
 }
 
-/* ===== INICIO CON SCROLL ===== */
+/* ===== INICIO SIN SCROLL ===== */
+#inicio.page {
+    overflow-y: hidden; /* QUITADO EL SCROLL */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .inicio-contenido {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
-    min-height: 100%;
-    padding: 0 0 40px 0;
+    height: 100%;
+    padding: 20px 0 30px 0;
 }
 
 .inicio-superior {
@@ -153,39 +160,39 @@ h2{
     opacity: 0.9;
 }
 
-/* PERFUME FLOTANTE - MÁS GRANDE */
+/* PERFUME FLOTANTE - TAMAÑO PERFECTO */
 .perfume-flotante {
-    margin: 30px 0 50px 0;
-    width: 100%;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    margin: 10px 0;
 }
 
 .flotando-img {
-    max-width: 320px;
+    max-width: 340px;  /* TAMAÑO IDEAL */
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 15px 25px rgba(212, 175, 55, 0.5));
+    filter: drop-shadow(0 20px 30px rgba(212, 175, 55, 0.5));
     animation: flotar 4s ease-in-out infinite;
     transition: all 0.3s ease;
 }
 
 @keyframes flotar {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); filter: drop-shadow(0 25px 35px rgba(212, 175, 55, 0.7)); }
+    50% { transform: translateY(-20px); filter: drop-shadow(0 30px 40px rgba(212, 175, 55, 0.7)); }
     100% { transform: translateY(0px); }
 }
 
 /* REDES SOCIALES AL PIE */
 .redes-sociales {
     display: flex;
-    gap: 40px;
+    gap: 45px;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: auto;
-    padding: 20px 0;
+    padding: 15px 0 10px 0;
 }
 
 .red-social {
@@ -201,8 +208,8 @@ h2{
 }
 
 .red-icon {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
 }
 
 /* Colores oficiales */
@@ -595,12 +602,12 @@ input,textarea{
     }
     
     .redes-sociales {
-        gap: 30px;
+        gap: 35px;
     }
     
     .red-icon {
-        width: 35px;
-        height: 35px;
+        width: 36px;
+        height: 36px;
     }
 }
 
@@ -611,15 +618,15 @@ input,textarea{
     }
     
     .flotando-img {
-        max-width: 220px;
+        max-width: 200px;
     }
     
     .redes-sociales {
-        gap: 25px;
+        gap: 28px;
     }
     
     .red-icon {
-        width: 30px;
-        height: 30px;
+        width: 32px;
+        height: 32px;
     }
-        }
+    }
