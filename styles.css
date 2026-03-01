@@ -175,6 +175,7 @@ h2{
     max-width: 380px;
     width: 100%;
     height: auto;
+    margin-top: -80px
     filter: drop-shadow(0 25px 35px rgba(212, 175, 55, 0.5));
     animation: flotar 4s ease-in-out infinite;
     transition: all 0.3s ease;
