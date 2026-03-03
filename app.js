@@ -44,7 +44,7 @@ const perfumes = [
     nombre:"Rasasi Hawas Fire Edp 100ml",
     precio:100,
     descripcion:"Intenso, dulce, especiado, seductor, duradero.",
-    imagenes:["img/Rasasi Hawas Fire Edp 100ml.png", "", ""]
+    imagenes:["img/Rasasi Hawas Fire Edp 100ml.jpg", "", ""]
 },
 {
     nombre:"PERFUME 3",
