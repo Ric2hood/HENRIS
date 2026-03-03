@@ -41,10 +41,10 @@ const perfumes = [
     imagenes:["Img/khamrah1.png","Img/khamrah2.png","Img/khamrah3.png"]
 },
 {
-    nombre:"PERFUME 2",
+    nombre:"Rasasi Hawas Fire Edp 100ml",
     precio:100,
-    descripcion:"Descripción del perfume",
-    imagenes:["Img/perfume2_1.png", "Img/perfume2_2.png", "Img/perfume2_3.png"]
+    descripcion:"Intenso, dulce, especiado, seductor, duradero.",
+    imagenes:["img/Rasasi Hawas Fire Edp 100ml.png", "", ""]
 },
 {
     nombre:"PERFUME 3",
